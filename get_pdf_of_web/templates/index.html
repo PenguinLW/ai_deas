@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage to PDF converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #FAFAFA;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2;
+            cursor: pointer;
+        }
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay" style="display: none;">
+        <div id="text">Converting... <br> Please wait...</div>
+    </div>
+    <form action="/" method="post" onsubmit="on()">
+        <label for="url">Enter URL:</label><br>
+        <input type="text" id="url" name="url" required><br>
+        <input type="submit" value="Convert to PDF">
+    </form>
+    <script>
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+            setTimeout(function(){ 
+                document.getElementById("overlay").style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
