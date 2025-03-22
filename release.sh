@@ -17,6 +17,6 @@ git config --global credential.helper "cache --timeout=8825200"
 
 git pull --all
 git add .
-git commit -m PenguinL
+git commit -m PenguinLW
 git push --set-upstream ai_deas master
 #deactivate
